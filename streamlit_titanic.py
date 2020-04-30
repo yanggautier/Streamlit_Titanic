@@ -138,9 +138,9 @@ rf.fit(X,Y)
 
 survived = rf.predict(personne)
 
-scores = cross_val_score(rf, X, Y, cv=5)
+proba = rf.predict_proba(personne)
 
 if survived[0] == 1:
-	st.success("La personne  a {}% d'être survit.".format(round(np.mean(scores)*100,2)))
+	st.success("La personne  a {}% d'être survit.".format(round(np.mean(proba)*100,2)))
 else:
-	st.error("La personne a {}% d'être morte.".format(round(np.mean(scores)*100,2)))
+	st.error("La personne a {}% d'être morte.".format(round(np.mean(proba)*100,2)))
