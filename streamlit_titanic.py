@@ -140,7 +140,8 @@ survived = rf.predict(personne)
 
 proba = rf.predict_proba(personne)
 
+
 if survived[0] == 1:
-	st.success("La personne  a {}% d'être survit.".format(round(np.mean(proba)*100,2)))
+	st.success("La personne  a {}% d'être survit.".format(round(proba[0,1]*100,2)))
 else:
-	st.error("La personne a {}% d'être morte.".format(round(np.mean(proba)*100,2)))
+	st.error("La personne a {}% d'être morte.".format(round(proba[0,0]*100,2)))
